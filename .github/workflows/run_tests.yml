@@ -44,6 +44,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Show SDKs
+      run: xcodebuild -showsdks
+
     - name: Build for testing
       run: xcodebuild build-for-testing -scheme UIKitExtensions -sdk iphoneos16.1 -destination generic/platform=iOS
     
