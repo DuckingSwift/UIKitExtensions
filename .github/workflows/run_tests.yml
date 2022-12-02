@@ -39,13 +39,17 @@ jobs:
 
 
   build_and_test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
+    needs: verify_formatting
 
     steps:
     - uses: actions/checkout@v3
 
-    - name: Build
-      run: swift build
+    - name: Show SDKs
+      run: xcodebuild -showsdks
+
+    - name: Build for testing
+      run: xcodebuild build-for-testing -scheme UIKitExtensions -sdk iphoneos16.0 -destination generic/platform=iOS
     
-    - name: Run tests
-      run: swift test
+    # - name: Run tests
+      # run: xcodebuild test -scheme UIKitExtensions -sdk iphonesimulator16.1 -destination "OS=16.1,name=iPhone 14"

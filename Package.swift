@@ -4,25 +4,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "UIKitExtensions",
+	name: "UIKitExtensions",
 	platforms: [
 		.iOS(.v13),
 		.tvOS(.v13),
 	],
-    products: [
-        .library(
-            name: "DSUIKitExtensions",
-            targets: ["DSUIKitExtensions"]),
-    ],
-    dependencies: [
+	products: [
+		.library(
+			name: "DSUIKitExtensions",
+			targets: ["DSUIKitExtensions"]
+		),
+	],
+	dependencies: [
 		.package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.50.3"),
-    ],
-    targets: [
-        .target(
-            name: "DSUIKitExtensions",
-            dependencies: []),
-        .testTarget(
-            name: "DSUIKitExtensionsTests",
-            dependencies: ["DSUIKitExtensions"]),
-    ]
+	],
+	targets: [
+		.target(
+			name: "DSUIKitExtensions",
+			dependencies: []
+		),
+		.testTarget(
+			name: "DSUIKitExtensionsTests",
+			dependencies: ["DSUIKitExtensions"]
+		),
+	]
 )
